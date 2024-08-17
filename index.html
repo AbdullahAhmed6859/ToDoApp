@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="to-do-app">
+      <h1>Todo List</h1>
+      <form class="add-form">
+        <h3>What do you need to do? 📝</h3>
+        <input type="text" name="todo" placeholder="Add a new todo..." />
+        <button type="submit">Add</button>
+      </form>
+      <div class="list">
+        <ul></ul>
+        <div class="actions">
+          <select name="sort">
+            <option value="input">Sort by input order</option>
+            <option value="description">Sort by description</option>
+            <option value="completed">Sort by completion status</option>
+          </select>
+          <button name="clear">Clear list</button>
+        </div>
+      </div>
+      <footer class="stats"></footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
