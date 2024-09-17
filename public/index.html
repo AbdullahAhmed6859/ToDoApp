@@ -8,14 +8,18 @@
   </head>
   <body>
     <div class="to-do-app">
-      <h1>Todo List</h1>
-      <form class="add-form">
-        <h3>What do you need to do? 📝</h3>
-        <input type="text" name="todo" placeholder="Add a new todo..." />
-        <button type="submit">Add</button>
-      </form>
-      <div class="list">
-        <ul></ul>
+      <header>
+        <h1>Todo List</h1>
+        <form class="add-form">
+          <h3>What do you need to do? 📝</h3>
+          <input type="text" name="todo" placeholder="Add a new todo..." />
+          <button type="submit">Add</button>
+        </form>
+      </header>
+      <main class="main">
+        <div class="todos">
+          <ul></ul>
+        </div>
         <div class="actions">
           <select name="sort">
             <option value="input">Sort by input order</option>
@@ -24,7 +28,7 @@
           </select>
           <button name="clear">Clear list</button>
         </div>
-      </div>
+      </main>
       <footer class="stats"></footer>
     </div>
     <script src="script.js"></script>

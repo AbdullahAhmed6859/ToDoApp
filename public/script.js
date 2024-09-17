@@ -5,7 +5,7 @@ let sortBy = localStorage.getItem("sortBy") || "input";
 // DOM elements
 const form = document.querySelector(".add-form");
 const todoInput = document.querySelector('input[name="todo"]');
-const todoList = document.querySelector(".list ul");
+const todoList = document.querySelector(".main ul");
 const sortSelect = document.querySelector('select[name="sort"]');
 const clearButton = document.querySelector('button[name="clear"]');
 const statsFooter = document.querySelector(".stats");
@@ -85,10 +85,12 @@ function updateUI() {
             <input type="checkbox" ${
               todo.completed ? "checked" : ""
             } onchange="handleToggleTodo(${todo.id})">
-            <span style="${
-              todo.completed ? "text-decoration: line-through" : ""
-            }">${todo.description}</span>
-            <button onclick="handleDeleteTodo(${todo.id})">❌</button>
+            <div>
+              <span style="${
+                todo.completed ? "text-decoration: line-through" : ""
+              }">${todo.description}</span>
+              <button onclick="handleDeleteTodo(${todo.id})">❌</button>
+            </div>
         </li>
     `
     )
