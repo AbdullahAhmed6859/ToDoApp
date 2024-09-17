@@ -8,6 +8,7 @@ const userSchema = new Schema({
     required: [true, "Please tell us your name"],
     trim: true,
     minlength: [3, "A name must be atleast 3 characters"],
+    trim: true,
   },
   email: {
     type: String,
@@ -15,35 +16,46 @@ const userSchema = new Schema({
     trim: true,
     unique: true,
     lowercase: true,
+    trim: true,
   },
   password: {
     type: String,
     required: [true, "Please provide a password"],
     minlength: 8,
+    trim: true,
   },
 });
 
-userSchema.methods.isPasswordCorrect = async (
-  candidatePassword,
-  userPassword
-) => await bcrypt.compare(candidatePassword, userPassword);
-
-const todoSchema = new Schema({
-  userId: Schema.ObjectId,
-  title: {
-    type: String,
-    required: [true, "A todo must have a title"],
+const todoSchema = new Schema(
+  {
+    userId: {
+      type: Schema.ObjectId,
+      ref: "users",
+      required: [true, "A todo must belong to a user"],
+    },
+    title: {
+      type: String,
+      required: [true, "A todo must have a title"],
+      maxLength: [50, "A todo can not be more than 50 characters"],
+      trim: true,
+    },
+    done: {
+      type: Boolean,
+      default: false,
+    },
   },
-  done: {
-    type: Boolean,
-    default: false,
-  },
-});
+  {
+    timestamps: {
+      createdAt: true,
+      updatedAt: false,
+    },
+  }
+);
 
 const UserModel = mongoose.model("users", userSchema);
-const ToDoModel = mongoose.model("todos", todoSchema);
+const TodoModel = mongoose.model("todos", todoSchema);
 
 module.exports = {
   UserModel,
-  ToDoModel,
+  TodoModel,
 };

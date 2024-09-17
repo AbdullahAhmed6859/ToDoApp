@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/AbdullahAhmed6859/ToDoApp-BE#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.2",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "zod": "^3.23.8"
   }
 }

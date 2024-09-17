@@ -33,8 +33,7 @@ async function auth(req, res, next) {
     });
     return;
   }
-
-  req.userId = decodedJWT?.userId;
+  req.userId = decodedJWT.id;
   next();
 }
 
